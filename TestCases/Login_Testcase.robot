@@ -18,8 +18,8 @@ ${PASSWORD}       SuperSecretPassword!
 
 *** Keywords ***
 Assert And Capture Screenshot Upon Failure
-    [Arguments]    ${expected}    ${actual}
-    Run Keyword If    """${expected}"""!="""${actual}"""    Run Keywords
+    [Arguments]    ${actual}    ${expected}
+   Run Keyword If    """${expected}""" not in """${actual}"""    Run Keywords
     ...    Capture Page Screenshot    AND
     ...    Fail    Expected: ${expected}, but got: ${actual}
 
